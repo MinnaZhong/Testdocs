@@ -66,7 +66,7 @@
 # 2. 连接机械臂
 ## 2.1 硬件连接
 &ensp;&ensp;推荐控制器与PC直连，以xArm为例如下图：  
-![[cable_connection_cn.jpg]](assets/cable_connection_cn.jpg)
+<img src="assets/cable_connection_cn.jpg" width="50%" div align=center/></br>
 &ensp;&ensp;其他连接方式请参考硬件连接。
 
 
@@ -77,84 +77,72 @@
 &ensp;&ensp;打开浏览器，在搜索栏中输入**控制器IP+:18333**，可快速访问UFACTORY Studio。   
 
 例如：控制器IP为192.168.1.201
-访问链接：<u>192.168.1.201:18333</u>
-
-![[ufactory_studio_cn.jpg]](assets/ufactory_studio_cn.jpg)
+访问链接：<u>192.168.1.201:18333</u></br>
+<img src="assets/ufactory_studio_cn.jpg" width="70%" div align=center/></br>
 
 # 3. 实时控制界面
 &ensp;&ensp;用于实时控制机械臂的位置，调整机械臂的运动姿态，末端工具，轨迹录制等。
-![[live_control_cn.png]](assets/live_control_cn.png)
+<img src="assets/live_control_cn.png" width="70%" div align=center/></br>
 ## 3.1 产品基础信息
-&ensp;&ensp;产品信息界面显示产品基础信息，如型号，机械臂IP，固件及软件版本，机械臂状态，模式，负载，安装方式等。    
-
-![[product_info_cn.png]](assets/product_info_cn.png)
-
+&ensp;&ensp;产品信息界面显示产品基础信息，如型号，机械臂IP，固件及软件版本，机械臂状态，模式，负载，安装方式等。  </br>  
+<img src="assets/product_info_cn.png" width="50%" div align=center/></br>
 * **IP地址：** 显示当前机械臂控制器的IP。  
-
 * **模式：** 显示机械臂当前模式，默认为位置模式。  
-
 * **负载：** 显示手臂当前的负载参数，默认为0kg。  
-
 * **安装：** 显示手臂当前的安装方式，默认为水平。 
-
 * **位置信息：** 显示机械臂当前TCP坐标[X,Y,Z,R,P,Y]。若选择轴角显示方式，则为[X,Y,Z,Rx,Ry,Rz]。可在辅助功能中切换。     
-
 * **关节信息：** 显示机械臂各关节角度，单位为度。
 
 ## 3.2 使能和STOP按钮
-
-![[enable_stop_cn.png]](assets/enable_stop_cn.png)
+<img src="assets/enable_stop_cn.png" width="50%" div align=center/></br>
 * **使能：** 使能机械臂各关节，使能成功后，该按钮消失。  
-
 * **STOP：** 机械臂立刻停止运动并清除所有缓存指令，不会断机械臂的使能状态。**软急停。**
 
 ## 3.3 位置和关节控制
-![[initial_pos_cn.png]](assets/initial_pos_cn.png)
+<img src="assets/initial_pos_cn.png" width="60%" div align=center/></br>
 * **初始点：** 长按为连续运动，机械臂回到默认初始点位。点按为步进运动，可在设置-运动参数-基础参数-初始点位置中设置自定义初始点（关节坐标）。    
-&ensp;&ensp;&ensp;&ensp;默认初始点：    
-&ensp;&ensp;&ensp;&ensp;xArm/850：``` [0,0,0,0,0,0,0]```
-&ensp;&ensp;&ensp;&ensp;Lite6：```[0,9.9,31.8,0,21.9,0]```
-![[image_danger.png]](assets/image_danger.png)
-
+默认初始点：    
+&ensp;&ensp;xArm/850：``` [0,0,0,0,0,0,0]``` </br>
+&ensp;&ensp;Lite6：```[0,9.9,31.8,0,21.9,0]```  </br>
+<img src="assets/image_danger.png" width="70%"/></br>
 * **末端调平：** 将末端法兰调整为水平。长按为连续运动，点按为步进运动。（xArm7因构型问题暂时不提供此按钮）
-* **手动模式：** 可手动拖拽机械部关节到达目标位置点。 
-&ensp;&ensp;&ensp;&ensp;1.开启手动模式前，请确保机械臂的安装方式和负载设置与实际符合，否则会有危险。
-&ensp;&ensp;&ensp;&ensp;2.机械臂需要正确加载SN才能开启手动模式，可在设置-我的设备中查看软件获取的机械表SN。
-&ensp;&ensp;&ensp;&ensp;3.查看并对比机械臂底座电源口贴的SN，与软件中的是否一致。
-* **速度：** 用于条件实时控制界面机械臂的运动速度，默认为50% = 115mm/s，1% = 2.3mm/s， 100%=230mm/s。（此页面速度最大值不是机械臂真实的最大运动速度，如需让机械臂高速运行，可在Blockly运动程序中添加速度指令）  
-
-![[linear_motion_cn.png]](assets/linear_motion_cn.png)
-* **直线运动：** 用户可以基于基坐标系，工具坐标系来控制机械臂的运动状态。笛卡尔空间运动的机械臂使工具在点之间进行线性移动，这意味这每个关节都会执行更为复杂的移动，以使工具保持在直线路径上。目标点确认后，末端路径是唯一的，轨迹过程中对应的姿态是随机的。
-&ensp;&ensp;&ensp;&ensp;基坐标系XYZ控制工具的位置，单位是毫米（mm）。TCP坐标系的Roll/Pitch/Yaw控制工具的方向，单位是度（°）。
-&ensp;&ensp;&ensp;&ensp;默认为轴角控制（Rx/Ry/Rz），可在设置-辅助功能中切换为RPY控制，如下图：
-![[RPY_control_cn.png]](assets/RPY_control_cn.png)
+* **手动模式：** 可手动拖拽机械部关节到达目标位置点。</br> 
+&ensp;&ensp;&ensp;&ensp;1. 开启手动模式前，请确保机械臂的安装方式和负载设置与实际符合，否则会有危险。</br>
+&ensp;&ensp;&ensp;&ensp;2. 机械臂需要正确加载SN才能开启手动模式，可在设置-我的设备中查看软件获取的机械表SN。</br>
+&ensp;&ensp;&ensp;&ensp;3. 查看并对比机械臂底座电源口贴的SN，与软件中的是否一致。</br>
+* **速度：** 用于条件实时控制界面机械臂的运动速度，默认为50% = 115mm/s，1% = 2.3mm/s， 100%=230mm/s。（此页面速度最大值不是机械臂真实的最大运动速度，如需让机械臂高速运行，可在Blockly运动程序中添加速度指令）</br>
+<img src="assets/linear_motion_cn.png" width="50%" div align=center/></br>
+* **直线运动：** 用户可以基于基坐标系，工具坐标系来控制机械臂的运动状态。笛卡尔空间运动的机械臂使工具在点之间进行线性移动，这意味这每个关节都会执行更为复杂的移动，以使工具保持在直线路径上。目标点确认后，末端路径是唯一的，轨迹过程中对应的姿态是随机的。</br>
+&ensp;&ensp;&ensp;&ensp;1. 基坐标系XYZ控制工具的位置，单位是毫米（mm）。TCP坐标系的Roll/Pitch/Yaw控制工具的方向，单位是度（°）。</br>
+&ensp;&ensp;&ensp;&ensp;2. 默认为轴角控制（Rx/Ry/Rz），可在设置-辅助功能中切换为RPY控制，如下图：</br>
+<img src="assets/RPY_control_cn.png" width="50%" div align=center/></br>
 
 ***
-<font color=Blue size=4>TCP坐标系定义：</font>
-![[tcp_coor_cn.png]](assets/tcp_coor_cn.png)
+<font color=blue size=4>TCP坐标系定义：</font></br>
+<img src="assets/tcp_coor_cn.png" width="20%" div align=center/></br>
 &ensp;&ensp;机械臂末端执行器法兰中心点（TCP）来定义的TCP坐标系，是依次绕基坐标系的X/Y/Z轴旋转[180°, 0°,0°]的结果。TCP坐标系的X/Y/Z空间指向会根据旋转角度的改变而改变。
-* Roll /Pitch/Yaw分别绕选定坐标系的X/Y/Z旋转，设置数值的±表示在旋转角度范围内圆的数值，其旋转方向会根据两点之间较小的角度方向旋转，这一点尤其要注意，严格控制两点之间的偏转角度大小来控制旋转方向，必要时在两点之间插入第三个点。如下图所示，如果要从位置点A偏转到位置点B，机械臂走的是α夹角方向，如果需要走β夹角方向，需要在β夹角之间插入新的位置点，而且要保证插入的位置点与A形成的夹角小于α。
-![[rpy_1.png]](assets/rpy_1.png)
+* Roll /Pitch/Yaw分别绕选定坐标系的X/Y/Z旋转，设置数值的±表示在旋转角度范围内圆的数值，其旋转方向会根据两点之间较小的角度方向旋转，这一点尤其要注意，严格控制两点之间的偏转角度大小来控制旋转方向，必要时在两点之间插入第三个点。如下图所示，如果要从位置点A偏转到位置点B，机械臂走的是α夹角方向，如果需要走β夹角方向，需要在β夹角之间插入新的位置点，而且要保证插入的位置点与A形成的夹角小于α。</br>
+<img src="assets/rpy_1.png" width="15%" div align=center/></br>
 * Roll/Pitch/Yaw三者的±180°在空间上的点是重合的，取值范围都为±180°，所以机械臂上报位置时，±180°都有可能。
 * RPY [rad] 滚动角、俯仰角和偏航角 (RPY)。RPY 旋转矩阵（X、Y、Z 旋转）由以下公式确定：
 $$
 Rrpy ( r, p,y) = R Z (y ) · R Y (p ) · R X ( r )
 $$
-![[rpy_2.png]](assets/rpy_2.png)
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;A：基坐标系&ensp;&ensp;B：TCP坐标系
-![[image_danger2.png]](image_danger2.png)
+<img src="assets/rpy_2.png" width="40%" div align=center/></br>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;A：基坐标系&ensp;&ensp;B：TCP坐标系</br>
+<img src="assets/image_danger2.png" width="70%"/></br>
 ***
 
-* **关节运动：** 机械臂通过协调每一个关节的旋转角度来控制末端执行器的位置，末端轨迹不是直线，速度单位是°/s。目标点确定之后，末端路径和轨迹过程中对应的姿态都是唯一的，目标点有多个关节联动时，完成这条指令每个关节用时一样。
- &ensp;&ensp;&ensp;&ensp; 长按为连续运动，点按为步进运动。
- &ensp;&ensp;&ensp;&ensp; 进度条：显示当前关节可移动范围。
-![[joint_motion.png]](assets/joint_motion.png)
-**确定关节旋转方向，可参考下图：**
-![[joint_direction.png]](assets/joint_direction.png)
+* **关节运动：** 机械臂通过协调每一个关节的旋转角度来控制末端执行器的位置，末端轨迹不是直线，速度单位是°/s。目标点确定之后，末端路径和轨迹过程中对应的姿态都是唯一的，目标点有多个关节联动时，完成这条指令每个关节用时一样。</br>
+ &ensp;&ensp;&ensp;&ensp; 长按为连续运动，点按为步进运动。</br>
+ &ensp;&ensp;&ensp;&ensp; 进度条：显示当前关节可移动范围。</br>
+<img src="assets/joint_motion.png" width="70%"/></br>
+**确定关节旋转方向，可参考下图：**  </br>
+<img src="assets/joint_direction.png" width="70%"/></br>
 ## 3.4 仿真与真实机械臂
 &ensp;&ensp;两种模式均需要连接真是机械臂。当切换为仿真机械臂时，真实机械臂不运动。但在仿真模式下设置的参数，应用于真实机械臂。
-&ensp;&ensp;例如，在仿真模式下设置TCP负载为0.6kg，切换回真实机械臂时负载也为0.6kg。
-![[simrobot_cn.png]](assets/simrobot_cn.png)
+&ensp;&ensp;例如，在仿真模式下设置TCP负载为0.6kg，切换回真实机械臂时负载也为0.6kg。</br>
+<img src="assets/simrobot_cn.png" width="40%"/></br>
 
 * ![[icon_reset.jpg]](assets/icon_reset.jpg) **重置视角：** 将3D视图视角设置为默认状态。
 * ![[icon_base.jpg]](assets/icon_base.jpg) **基坐标：** 显示当前基坐标系。
@@ -162,74 +150,75 @@ $$
 * ![[icon_plotpath.jpg]](assets/icon_plotpath.jpg) **绘制轨迹：** 绘制机械臂运行轨迹。
 * ![[icon_cleanpath.jpg]](assets/icon_cleanpath.jpg) **清除轨迹：** 清除已绘制的轨迹。
 
-&ensp;&ensp;如下图，显示基坐标与工具坐标，绘制轨迹。
-![[plotpath.png]](assets/plotpath.png)
+&ensp;&ensp;如下图，显示基坐标与工具坐标，绘制轨迹。</br>
+<img src="assets/plotpath.png" width="30%"/></br>
 ## 3.5 末端执行器
 &ensp;&ensp;软件支持的末端执行器有：机械爪、真空吸头（插接式和触点式）、xArm BIO机械爪、Robotiq-2F-85机械爪、Robotiq-2F-140机械爪。
-&ensp;&ensp;默认为无末端执行器。
-![[xarm_gripper_cn.png]](assets/xarm_gripper_cn.png) 
+&ensp;&ensp;默认为无末端执行器。</br>
+<img src="assets/xarm_gripper_cn.png" width="70%"/></br>
 
-&ensp;&ensp;选择对应末端执行器时，若检测到当前机械臂波特率和默认末端执行器波特率不符，弹框提示用户选择设置为默认波特率，点击是即可保存。例如：xArm机械爪默认波特率为2000000，Robotiq机械爪默认波特率为115200。  
-![[baudrate_cn.png]](assets/baudrate_cn.png)
+&ensp;&ensp;选择对应末端执行器时，若检测到当前机械臂波特率和默认末端执行器波特率不符，弹框提示用户选择设置为默认波特率，点击是即可保存。例如：xArm机械爪默认波特率为2000000，Robotiq机械爪默认波特率为115200。  </br>
+<img src="assets/baudrate_cn.png" width="70%"/></br>
 
-&ensp;&ensp;支持自定义圆柱体和长方体，如下图：
-![[cylinder_cn.png]](assets/cylinder_cn.png)
+&ensp;&ensp;支持自定义圆柱体和长方体，如下图：</br>
+<img src="assets/cylinder_cn.png" width="70%"/></br>
 ## 3.6 轨迹录制
 &ensp;&ensp;用于记录并回放用户拖拽机械臂进行示教的轨迹，最长录制时间为5分钟，可设置轨迹回放倍数，录制好的轨迹可导入Blockly项目中。
-![[recording_cn.png]](assets/recording_cn.png)
-* ![[icon_play.jpg]](assets/icon_play.jpg) **播放：** 播放当前轨迹文件。
-* ![[icon_pause.jpg]](assets/icon_pause.jpg) **暂停：** 暂停播放当前轨迹文件。
-* ![[icon_speed.jpg]](assets/icon_speed.jpg) **倍数：** 倍数播放，可选1倍，2倍，4倍。
-* ![[icon_times.jpg]](assets/icon_times.jpg) **循环次数：** 循环播放次数，最大为999次。
-* ![[icon_create.jpg]](assets/icon_create.jpg) **新建文件：** 单击后弹出菜单：输入轨迹名称，点击录制并拖动手臂（**Lite6需要按住末端按钮**），轨迹录制完成，单击保存按钮。
-* ![[icon_list.jpg]](assets/icon_list.jpg) **导入/删除文件：** 导入和删除选中的轨迹文件。
+<img src="assets/recording_cn.png" width="30%"/></br>
+![[icon_play.jpg]](assets/icon_play.jpg) **播放：** 播放当前轨迹文件。
+![[icon_pause.jpg]](assets/icon_pause.jpg) **暂停：** 暂停播放当前轨迹文件。
+![[icon_speed.jpg]](assets/icon_speed.jpg) **倍数：** 倍数播放，可选1倍，2倍，4倍。
+![[icon_times.jpg]](assets/icon_times.jpg) **循环次数：** 循环播放次数，最大为999次。
+![[icon_create.jpg]](assets/icon_create.jpg) **新建文件：** 单击后弹出菜单：输入轨迹名称，点击录制并拖动手臂（**Lite6需要按住末端按钮**），轨迹录制完成，单击保存按钮。
+![[icon_list.jpg]](assets/icon_list.jpg) **导入/删除文件：** 导入和删除选中的轨迹文件。
 
-&ensp;&ensp;新建文件过程如图：  
-![[create_traj_cn.jpg]](assets/create_traj_cn.jpg)
+&ensp;&ensp;新建文件过程如图：  </br>
+<img src="assets/create_traj_cn.jpg" width="50%"/></br>
   
-&ensp;&ensp;轨迹文件列表：
-![[import_traj_cn.png]](assets/import_traj_cn.png)
+&ensp;&ensp;轨迹文件列表：</br>
+<img src="assets/import_traj_cn.png" width="50%"/></br>
+
 # 4. Blockly界面
 &ensp;&ensp;Blockly是一个图形化编程工具，可以通过拖拽代码块的方式编程来控制机械臂，无需手动编写代码。
 ## 4.1 页面简介
-![[blockly_home_cn.png]](assets/blockly_home_cn.png)
-![[icon_run.png]](assets/icon_run.png) **运行：** 运行当前Blockly项目。
-![[icon_pause_1.png]](assets/icon_pause_1.png) **暂停：** 暂停正在运行的Blockly项目。
-![[icon_convert.png]](assets/icon_convert.png) **转Python：** 跳转到Python IDE模块。
-![[icon_save.png]](assets/icon_save.png) **保存：** 保存对Blockly项目的更改。
-![[icon_zoom_log.png]](assets/icon_zoom_log.png) **缩放日志区：** 隐藏/显示日志区域。
-![[icon_zoom.png]](assets/icon_zoom.png) **缩放3D区：** 隐藏/显示3D模型区域。
-![[icon_option_cn.png]](assets/icon_option_cn.png) **文件操作：** 新建、导入、下载、复制、重命名、删除。
+<img src="assets/blockly_home_cn.png" width="70%"/></br>
+<img src="assets/icon_run.png" width="3.5%"/> **运行：** 运行当前Blockly项目。 </br>
+<img src="assets/icon_pause_1.png" width="3.5%"/> **暂停：** 暂停正在运行的Blockly项目。</br>
+<img src="assets/icon_convert.png" width="3.5%"/> **转Python：** 跳转到Python IDE模块。</br>
+<img src="assets/icon_save.png" width="3.5%"/> **保存：** 保存对Blockly项目的更改。</br>
+<img src="assets/icon_zoom_log.png" width="3.5%"/> **缩放日志区：** 隐藏/显示日志区域。</br>
+<img src="assets/icon_zoom.png" width="3.5%"/> **缩放3D区：** 隐藏/显示3D模型区域。</br>
+<img src="assets/icon_option_cn.png" width="8%"/> **文件操作：** 新建、导入、下载、复制、重命名、删除。</br>
 ## 4.2 Blockly工作区
-&ensp;&ensp; 将代码块拖入到操作面板，**代码块执行的顺序是自上而下，从左至右**，可同时拖拽改代码块后面连着的代码。拖拽代码块到左边非工作区删除，或者可以选择代码块后按键盘Enter/Delete键。
-![[icon_blockly_1.png]](assets/icon_blockly_1.png) **重置：** 页面回到默认大小和代码块居中位置。
-![[icon_blockly_2.png]](assets/icon_blockly_2.png) **放大：** 放大代码块。
-![[icon_blockly_3.png]](assets/icon_blockly_3.png)**缩小：** 缩小代码块。
+&ensp;&ensp; 将代码块拖入到操作面板，**代码块执行的顺序是自上而下，从左至右**，可同时拖拽改代码块后面连着的代码。拖拽代码块到左边非工作区删除，或者可以选择代码块后按键盘Enter/Delete键。</br>
+<img src="assets/icon_blockly_1.png" width="3.5%"/> **重置：** 页面回到默认大小和代码块居中位置。</br>
+<img src="assets/icon_blockly_2.png" width="3.5%"/> **放大：** 放大代码块。</br>
+<img src="assets/icon_blockly_3.png" width="3.5%"/>**缩小：** 缩小代码块。</br>
 
 **工作区右键功能**
-&ensp;&ensp; 在非代码块的空白工作区右键，功能主要针对所有的代码块：
-![[blockly_rightclick_cn.png]](assets/blockly_rightclick_cn.png)
-* **撤销：** 撤销上一次的操作。
-* **重做：** 还原上一次撤销的操作。
-* **折叠命令：** 折叠所有代码块。
-* **显示完整命令：** 显示所有折叠的代码块。
-* **删除命令：** 删除代码块。
+&ensp;&ensp; 在非代码块的空白工作区右键，功能主要针对所有的代码块：</br>
+<img src="assets/blockly_rightclick_cn.png" width="70%"/></br>
+* **撤销：** 撤销上一次的操作。 </br>
+* **重做：** 还原上一次撤销的操作。</br>
+* **折叠命令：** 折叠所有代码块。</br>
+* **显示完整命令：** 显示所有折叠的代码块。</br>
+* **删除命令：** 删除代码块。</br>
 
 **代码块右键功能**
-&ensp;&ensp; 在代码块上右键，功能主要针对当前的码块：
-![[blockly_rightclick_1_cn.png]](assets/blockly_rightclick_1_cn.png)
+&ensp;&ensp; 在代码块上右键，功能主要针对当前的码块：</br>
+<img src="assets/blockly_rightclick_1_cn.png" width="70%"/></br>
 * **复制：** 复制当前包裹的所有代码块。支持键盘复制/粘贴快捷键粘贴到其他文件（ctrl+c，ctrl+v，ctrl+x）。
-* **添加描述：** 针对该代码块添加描述，弹出标识符![[icon_blockly.png]](assets/icon_blockly.png)，点击该符号可打开/关闭描述弹窗，如下图：
-![[blockly_comment.png]](assets/blockly_comment.png)
+* **添加描述：** 针对该代码块添加描述，弹出标识符<img src="assets/icon_blockly.png" width="2%"/>，点击该符号可打开/关闭描述弹窗，如下图：</br>
+<img src="assets/blockly_comment.png" width="10%"/></br>
 * **外部输入：** 设置代码块的参数块在最后边。
 * **内部输入：** 设置代码块的参数块和代码在一起。
 * **折叠命令：** 折叠当前包裹的代码块。
 * **禁止运行命令：** 禁止运行当前包裹的代码块，与此相反的是恢复运行命令。
-* **删除命令：** 删除当前鼠标选中的代码块。
+* **删除命令：** 删除当前鼠标选中的代码块。</br>
 
-**移动/修改代码块**
-![[blockly_edit_cn.png]](assets/blockly_edit_cn.png)
-![[blockly_edit_1_cn.png]](assets/blockly_edit_1_cn.png)
+**移动/修改代码块** </br>
+<img src="assets/blockly_edit_cn.png" width="60%"/></br>
+<img src="assets/blockly_edit_1_cn.png" width="60%"/></br>
 &ensp;&ensp; 点击修改，弹出实时控制界面，可重新编辑当前指令的运动坐标。
 &ensp;&ensp; 长按移动按钮，使机械臂移动到当前指令的位置点。点击保存，保存更改。
 
@@ -239,63 +228,41 @@ $$
 
 ## 4.3 Blockly编程
 ### 4.3.1 设置
-![[blockly_settings.png]](assets/blockly_settings.png)
-**设置TCP速度**: 设置直线运动的速度，单位是mm/s。
-参数范围：xArm/UF850:0-1000, Lite6:500
-
-**设置TCP加速度**: 设置直线运动的加速度，单位是mm/s²。参数范围：1-50000
-
-**设置关节速度**: 设置关节运动的速度，单位是°/s。参数范围：0-180
-
-**设置关节加速度**：设置关节运动的加速度，单位是°/s²。参数范围1-1146
-
-**设置TCP负载**：设置当前项目的负载，下拉列表引用TCP负载。
-
-**设置TCP偏移**：设置当前项目的末端偏移，下拉列表引用TCP偏移。
-
-**设置坐标系偏移**:设置当前项目的基坐标偏移，下拉列表引用坐标系偏移数据。
-
-**设置碰撞灵敏度**：默认为3，参数范围：0、1、2、3、4、5
-
-**重置计数器**：该指令将控制器内的计数器重置为0。
-
-**计数器自增**：每次执行到该指令时会使控制器的计数器自增1。
-
-**获取计数器**：获取计数器的值。
-
-**当计数器(>)(0)执行**：when执行事件，满足条件时执行。
+<img src="assets/blockly_settings.png" width="60%"/></br>
+* **设置TCP速度**: 设置直线运动的速度，单位是mm/s。参数范围：xArm/UF850:0-1000, Lite6:500 </br>
+* **设置TCP加速度**: 设置直线运动的加速度，单位是mm/s²。参数范围：1-50000 </br>
+* **设置关节速度**: 设置关节运动的速度，单位是°/s。参数范围：0-180</br>
+* **设置关节加速度**：设置关节运动的加速度，单位是°/s²。参数范围1-1146 </br>
+* **设置TCP负载**：设置当前项目的负载，下拉列表引用TCP负载。</br>
+* **设置TCP偏移**：设置当前项目的末端偏移，下拉列表引用TCP偏移。</br>
+* **设置坐标系偏移**:设置当前项目的基坐标偏移，下拉列表引用坐标系偏移数据。</br>
+* **设置碰撞灵敏度**：默认为3，参数范围：0、1、2、3、4、5 </br>
+* **重置计数器**：该指令将控制器内的计数器重置为0。 </br>
+* **计数器自增**：每次执行到该指令时会使控制器的计数器自增1。 </br>
+* **获取计数器**：获取计数器的值。 </br>
+* **当计数器(>)(0)执行**：when执行事件，满足条件时执行。 </br>
 ### 4.3.2 运动
-![[blockly_motion.png]](assets/blockly_motion.png)
-**运动（恢复）**：设置机械臂的状态。可选参数：恢复、暂停、停止。停止将退出程序。
-
-**紧急停止**：机械臂立即停止运动，退出Blockly程序并清空所有缓存指令。
-
-**零点：** 机械臂回所有关节值都为0的姿态。
-
-**末端调平：** 将末端调整为水平。
-
-**关节运动：** 设置关节运动的各个关节值，单位是°。在真实机械臂模式下，从侧边拖出的关节运动指令数据是真实机械臂当前姿态数据。
-
-**直线运动（XYZRPY）：** 直线运动，姿态控制方式为RPY
-
-**直线运动[轴角]（XYZRxRyRz）：** 直线运动，姿态控制方式为轴角。
-
-**向前**：机械臂基于当前位置做相对运动，单位是mm。可选参数：前、后、左、右、上、下
-
-**工具运动（XYZRPY）：** 机械臂相对于工具坐标系做相对运动。
-
-**圆弧运动：** 表示位置1到位置2走圆弧运动，但该命令前面还需再加入一个位置点，三点确定一个圆，单位是mm。圆心角：该圆弧的度数，设置360°时可以走完一整个圆弧。（注意：要想实现平滑的轨迹运动，需要设置等待=假）
-
-**支持输入变量的运动：**
+<img src="assets/blockly_motion.png" width="70%"/></br>
+* **运动（恢复）**：设置机械臂的状态。可选参数：恢复、暂停、停止。停止将退出程序。 </br>
+* **紧急停止**：机械臂立即停止运动，退出Blockly程序并清空所有缓存指令。</br>
+* **零点：** 机械臂回所有关节值都为0的姿态。</br>
+* **末端调平：** 将末端调整为水平。</br>
+* **关节运动：** 设置关节运动的各个关节值，单位是°。在真实机械臂模式下，从侧边拖出的关节运动指令数据是真实机械臂当前姿态数据。</br>
+* **直线运动（XYZRPY）：** 直线运动，姿态控制方式为RPY</br>
+* **直线运动[轴角]（XYZRxRyRz）：** 直线运动，姿态控制方式为轴角。</br>
+* **向前**：机械臂基于当前位置做相对运动，单位是mm。可选参数：前、后、左、右、上、下</br>
+* **工具运动（XYZRPY）：** 机械臂相对于工具坐标系做相对运动。</br>
+* **圆弧运动：** 表示位置1到位置2走圆弧运动，但该命令前面还需再加入一个位置点，三点确定一个圆，单位是mm。圆心角：该圆弧的度数，设置360°时可以走完一整个圆弧。（注意：要想实现平滑的轨迹运动，需要设置等待=假）</br>
+* **支持输入变量的运动：**  </br>
 &ensp;&ensp; 与上面的运动代码块功能相似，可输入的值支持变量，方便客户编程。
 例如下图，将X设置为变量。
-![[blockly_motion_va_cn.png]](assets/blockly_motion_va_cn.png)
+<img src="assets/blockly_motion_va_cn.png" width="70%"/></br>
 ### 4.3.3 IO
 #### 4.3.3.1 控制器IO
 &ensp;&ensp; xArm/UF850有16个数字输入、16个数字输出、2个模拟输入、2个模拟输出。
 &ensp;&ensp; Lite6有8个数字输入、8个数字输出、2个模拟输入、2个模拟输出。
 &ensp;&ensp; 控制器数字输入IO为低电平触发。
-![[blockly_cgpio_cn.png]](assets/blockly_cgpio_cn.png)
+<img src="assets/blockly_cgpio_cn.png" width="70%"/></br>
 **获取CI(0)：** 获取CI0-CI7的值。返回：0或1
 
 **获取DI(0)：** 获取DI0-DI7的值。返回：0或1
@@ -311,13 +278,13 @@ $$
 **DI0-DI7为(高/低)电平,超时时间(3):** 判断DI0-DI7的值，满足条件时执行事件。当超过超时时间(3)s仍不满足条件时，执行下一条代码块。  
 
 **位置触发：** 
-![[blockly_potrigger_cn.png]](assets/blockly_potrigger_cn.png)
+<img src="assets/blockly_potrigger_cn.png" width="70%"/></br>
 * 当机械臂到达指定位置时，以触发位置点（X,Y,Z）为中心指定的球面体区域（球面体半径为容错半径）触发IO。该指令可用于在特定位置触发IO的场景。
 * X,Y,Z 代表机械臂要到达的指定位置的坐标值，单位毫米。
 * 容错半径是指，TCP位置触发的数字IO操作中，以触发位置点为中心指定一个球面体区域，只要系统检测TCP位置进入这个附近区域时即触发IO。如果不设置容错半径，则机械臂以非0的速度通过指定点时可能因无法准确检测到而导致漏触发。
 
 **事件：**
-![[blockly_event_cn.png]](assets/blockly_event_cn.png)
+<img src="assets/blockly_event_cn.png" width="70%"/></br>
 * 当(CI0-CI7)为(高电平/低电平)时执行：当条件满足时执行该代码块包含的指令。
 * 当(DI0-DI7)为(高电平/低电平)时执行：当条件满足时执行该代码块包含的指令。
 * 当(AI0/AI1)(=)(0)时执行：当监听的模拟IO数值满足条件时执行代码块包含的指令，条件有 =，≠，>，≥，<，≤ 。
@@ -325,87 +292,87 @@ $$
 &ensp;&ensp; &ensp;&ensp; **当（when，跳变触发）：** 每100ms获取一次IO状态，将第一次获取到的状态作为初始值。从第二次获取到的IO状态与上一次获取的IO状态比较，**有变化时**触发满足条件的回调。
 &ensp;&ensp; &ensp;&ensp; **如果（if，水平触发）：** 第一次检测到IO状态满足条件时，触发满足条件的回调。
 #### 4.3.3.2 工具IO
-![[blockly_toolIO_cn.png]](assets/blockly_toolIO_cn.png)
+<img src="assets/blockly_toolIO_cn.png" width="70%"/></br>
 &ensp;&ensp;可参考控制器IO的代码块，功能相似
 ### 4.3.4 末端工具
-**机械爪**
-![[blockly_gripper_cn.png]](assets/blockly_gripper_cn.png)
-![[blockly_gripperlite_cn.png]](assets/blockly_gripperlite_cn.png)
+**机械爪** </br>
+<img src="assets/blockly_gripper_cn.png" width="70%"/></br>
+<img src="assets/blockly_gripperlite_cn.png" width="70%"/></br>
 &ensp;&ensp; 软件自动检测手臂类型，并显示对应代码块。
 &ensp;&ensp; **xArm/UF850：** 设置机械爪位置、设置机械爪位置(变量)、物体已被夹住。 位置：-10~850，速度：1000~5000
 &ensp;&ensp; **Lite6：** 设置机械爪张开、物体已被夹住。 可选参数：张开、闭合、停止
 
-**BIO机械爪**
-![[blockly_biogripper_cn.png]](assets/blockly_biogripper_cn.png)
+**BIO机械爪**</br>
+<img src="assets/blockly_biogripper_cn.png" width="70%"/></br>
 &ensp;&ensp; **BIO机械爪：** 初始化机械爪，设置BIO机械爪打开、检测BIO机械爪已经夹住物体。
 机械爪使用时必须先进行初始化。 速度：200-2400
 
-**Robotiq机械爪**
-![[blockly_robotiq_cn.png]](assets/blockly_robotiq_cn.png)
+**Robotiq机械爪**</br>
+<img src="assets/blockly_robotiq_cn.png" width="70%"/></br>
 &ensp;&ensp; **Robotiq机械爪：** 初始化Robotiq机械爪、设置Robotiq机械爪位置/速度/力度。
 位置：0-255，速度：0-255，力度：0-255
 
 
-**真空吸头** 
-![[blockly_vaccumgripper_cn.png]](assets/blockly_vaccumgripper_cn.png)
+**真空吸头** </br>
+<img src="assets/blockly_vaccumgripper_cn.png" width="70%"/></br>
 &ensp;&ensp; 获取真空吸头状态：返回0或1。 0：吸住  1：
 &ensp;&ensp; 检测到物体已经(吸住)：吸住或释放，超过超时时间不满足条件则执行下一个代码块。
 &ensp;&ensp; 设置真空吸头(开)是否拾取检测(否)：打开或关闭吸头。
 
-### 4.3.5 外接设备
+### 4.3.5 外接设备</br>
 #### **直线滑轨** 
-![[blockly_linearmotor_cn.png]](assets/blockly_linearmotor_cn.png)
+<img src="assets/blockly_linearmotor_cn.png" width="70%"/></br>
 &ensp;&ensp; 当手臂检测到连接了滑轨时显示此代码块，否则不可使用。 设置直线滑轨：位置、速度。
 
 #### **Modbus RTU** 
-![[blockly_modbusrtu_cn.png]](assets/blockly_modbusrtu_cn.png)
+<img src="assets/blockly_modbusrtu_cn.png" width="70%"/></br>
 &ensp;&ensp; 设置/获取RS-485端口Modbus RTU指令： 机械臂/控制盒。
 &ensp;&ensp; 仅支持**标准ModbusRTU**，会在输入的指令后自动加CRC。
 &ensp;&ensp; 例如：控制xArm机械臂开到位置600，并获取当前位置。
-![[blockly_modbustru_ex_cn.png]](assets/blockly_modbustru_ex_cn.png)
+<img src="assets/blockly_modbustru_ex_cn.png" width="70%"/></br>
 
 #### **力矩传感器**
-![[blockly_ftsensor_cn.png]](assets/blockly_ftsensor_cn.png)
+<img src="assets/blockly_ftsensor_cn.png" width="70%"/></br>
 设置力矩传感器力控制：
 坐标系：基坐标、工具坐标。 力方向：Fx,Fy,Fz,Tx,Ty,Tz。
 力大小：Fx(-105,105)  Fy(-105,105)  Fz(-140,140)   TxTyTz(-2.8,2.8)
 
 #### **Modbus TCP**
-![[blockly_modbustcp_cn.png]](assets/blockly_modbustcp_cn.png)
+<img src="assets/blockly_modbustcp_cn.png" width="70%"/></br>
 &ensp;&ensp; Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory.cc/modbustcp_cn)
 &ensp;&ensp; 当保持寄存器地址()为()时执行：需要检测到该寄存器地址的值有跳变，则触发事件。
 &ensp;&ensp; 例如下图，将寄存器01 A0的值设置为12 34，触发手臂运动。
-![[blockly_modbustcp_ex_cn.png]](assets/blockly_modbustcp_ex_cn.png)
+<img src="assets/blockly_modbustcp_ex_cn.png" width="70%"/></br>
 
 ### 4.3.6 导入
-![[blockly_import_cn.png]](assets/blockly_import_cn.png)
+<img src="assets/blockly_import_cn.png" width="70%"/></br>
 &ensp;&ensp; 可支持导入轨迹文件、Blockly工程、Gcode代码。可选择运行次数。
 &ensp;&ensp; 点击运行可单独执行对应的文件项目。
 
 ### 4.3.7 逻辑
-![[bockly_logic_cn.png]](assets/bockly_logic_cn.png)
+<img src="assets/bockly_logic_cn.png" width="70%"/></br>
 **等待：** 等待()秒后发送后面的指令。
 如果(条件1) 运行（指令1）：如果条件1成立，则会运行指令1，否则就跳过。
 如果/否则语句的设置：
-* 点击运行命令块![[icon_if.png]](assets/icon_if.png)上的设置按钮![[icon_if_1.png]](assets/icon_if_1.png)，然后命令块会弹出一个选择框，如下图：![[icon_if_2.png]](assets/icon_if_2.png)
-* 将上图中否则代码块拖到右边如果代码块下方，使两个代码块结合，如下图：![[icon_if_3.png]](assets/icon_if_3.png)
-* 此时点击设置按钮![[icon_if_1.png]](assets/icon_if_1.png)，1. 选择框收回，如果/否则语句设置完成，如下图：
-  ![[icon_if_4.png]](assets/icon_if_4.png)
+* 点击运行命令块<img src="assets/icon_if.png" width="3%"/>上的设置按钮<img src="assets/icon_if_1.png" width="3%"/>，然后命令块会弹出一个选择框，如下图：<img src="assets/icon_if_2.png" width="3%"/>
+* 将上图中否则代码块拖到右边如果代码块下方，使两个代码块结合，如下图：<img src="assets/icon_if_3.png" width="3%"/>
+* 此时点击设置按钮<img src="assets/icon_if_1.png" width="3%"/>，1. 选择框收回，如果/否则语句设置完成，如下图：
+<img src="assets/icon_if_4.png" width="50%"/></br>
   
 ### 4.3.8 循环
-![[blockly_loop_cn.png]](assets/blockly_loop_cn.png)
+<img src="assets/blockly_loop_cn.png" width="70%"/></br>
 **一直循环 ：** 里面包含的指令无限循环。
 **循环() 运行：** 循环（）次里面包含的指令。
 **重复运行，当：** 当条件不成立时，跳出循环。
 **跳出循环：** 终止循环。
 
 ### 4.3.9 运算
-![[blockly_math_cn.png]](assets/blockly_math_cn.png)
+<img src="assets/blockly_math_cn.png" width="70%"/></br>
 &ensp;&ensp; 可使用上面的代码块做加减乘除，指数运算等一些复杂的运算。
 
 ### 4.3.10 进阶
 #### **文字**
-![[blockly_text_cn.png]](assets/blockly_text_cn.png)
+<img src="assets/blockly_text_cn.png" width="70%"/></br>
 **备注：** 备注该代码块，起指示作用，可改变颜色。
 **消息提示：** 类型（信息/成功/警告/错误），持续时间表示消息显示的时间，单位是秒（s）；message表示提示的消息内容。
 **字符串打印：** 可在下方打印输入的字符串，并设置字体颜色。
@@ -415,21 +382,21 @@ $$
 **Python表达式：** 可以自定义Python表达式。
 
 #### **变量**
-![[blockly_var_cn.png]](assets/blockly_var_cn.png)
+<img src="assets/blockly_var_cn.png" width="70%"/></br>
 &ensp;&ensp; 用户可以新建变量。变量操作：设置变量值、通过加减操作改变变量值。
 &ensp;&ensp; 可重命名变量、删除变量。
 
 #### **函数**
-![[blockly_function_cn.png]](assets/blockly_function_cn.png)
+<img src="assets/blockly_function_cn.png" width="70%"/></br>
 **定义函数（函数名）：** 可定义新函数，不带返回值。
 **定义函数（函数名）输出[]：** 可定义新函数，带返回值。
 **如果()输出()：** 条件判断句，只能放在内置函数中。  
 
 注意：定义的函数要放在主程序的前面。
 
-## 4.4 Python IDE模块
+## 4.4 PythonIDE模块
 &ensp;&ensp; 点击Blockly页面的图标进入到Python IDE页面。 Python IDE是Python开发集成环境，可直接使用xArm-Python-SDK API和查看Blockly项目自动转换的Python代码。
-![[blockly_pythonide_cn.png]](assets/[blockly_pythonide_cn.png)
+<img src="assets/[blockly_pythonide_cn.png" width="70%"/></br>
 &ensp;&ensp; 点击选项，或右键项目，可新建文件夹、新建文件、导入文件、下载文件、重命名文件、删除文件，图标功能与Blockly相似。
 
 # 5. Gcode界面
@@ -1183,7 +1150,7 @@ move_circle([350.0, 50.0, 400.0, 180.0, -90.0, 0.0], [350.0, -50.0, 400.0, 180.0
 | S52                               | 电机角度初始化失败  <br>请通过控制器上的紧急停止按钮重启机械臂。                                   |
 | S58                               | 转矩指令超时</br><br>请通过控制器上的紧急停止按钮重启机械臂。                                   |
 &ensp;&ensp;上表中未出现的报警代码：如频繁出现，请联系技术支持。
-## 12.3 Python SDK报警信息
+## 12.3 PythonSDK报警信息
 &ensp;&ensp; 在用 Python 库设计机器人运动规划时，如果机器人出现故障，需要手动清除错误。清除错误后，仍需重新给机器人使能，设置运动模式，方可使机器人正常运动。此时根据上报的错误信息，应重新调整机器人的路径规划。
 &ensp;&ensp; Python 库清除错误步骤：（如下接口，详细说明请查看 GitHub）
 * 清除错误：clean_error()
