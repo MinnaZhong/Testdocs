@@ -660,7 +660,7 @@ Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory
 &ensp;&ensp;此页面可通过观测机械臂的一些参数值，进行图形绘制并导入到CSV，方便用户观察并记录。点击开始，开始绘图，希望结束时点击结束按钮，必须点击结束按钮，才可使用Studio软件的其他功能。
 
 **机械臂** 
-<img src="assets/settings_debugging_cn.png" width="70%"/></br>
+<img src="assets/settings_debugging_cn.png" width="60%"/></br>
 可观测数据：
 * 规划关节位置
 * 规划关节速度
@@ -683,8 +683,8 @@ Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory
 关节：所有关节、单关节
 
 **关节**
-&ensp;&ensp;此页面可以通过输入指令的方式对于机械臂进行调参或者查询当前机械臂的相关参数，该功能需要在技术支持的指引下进行，并可以通过页面对机械臂关节进行解锁，从而手动转动关节。
-<img src="assets/settings_debugging_2_cn.png" width="70%"/></br>
+&ensp;&ensp;此页面可以通过输入指令的方式对于机械臂进行调参或者查询当前机械臂的相关参数，该功能需要在技术支持的指引下进行，并可以通过页面对机械臂关节进行解锁，从而手动转动关节。</br>
+<img src="assets/settings_debugging_2_cn.png" width="60%"/></br>
 
 注意：
 该功能要在技术支持的指导下操作。（联系技术支持：[support@ufactory.cc）](mailto:support@ufactory.cc）)
@@ -694,16 +694,16 @@ Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory
 <img src="assets/settings_debugging_icon.png" width="70%"/></br>
 ### 6.4.3 高级设置
 <img src="assets/settings_advanced_cn.png" width="70%"/></br>
-&ensp;&ensp;此页面需要输入密码才能进行访问，默认密码是：admin
-&ensp;&ensp;请妥善保管密码，当密码遗忘时，请联系技术支持进行密码重置。
-**关节加加速度：** 6~28647，默认为11459°/s³。
-**TCP加加速度：** 1~100000，默认为7000mm/s³。
+&ensp;&ensp;此页面需要输入密码才能进行访问，默认密码是：admin</br>
+&ensp;&ensp;请妥善保管密码，当密码遗忘时，请联系技术支持进行密码重置。</br>
+**关节加加速度：** 6-28647，默认为11459°/s³。</br>
+**TCP加加速度：** 1~100000，默认为7000mm/s³。</br>
 注意：
 * 加加速度影响机械臂的加速性能，一般情况下，我们不建议修改该参数。
 * 机械臂未使能/有错误/运动情况下，无法修改加加速度。
 
 **机械臂停止状态清空IO输出：** 如果机械臂收到停止指令，则对应选择的以下选项将被设置回默认状态。
-* 可配置输出(CO0~CO7)，数字输出(DO0~DO7)：
+* 可配置输出(CO0-CO7)，数字输出(DO0-DO7)：
 * 末端工具数字输出(TO0/TO1):
 
 **碰撞回弹：** 当机械臂碰撞障碍物时，机械臂会反向回弹一定的距离。如果碰撞灵敏度不为0，该模式关闭后，机械臂会停留在检测到碰撞的位置。
@@ -742,8 +742,8 @@ Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory
 注意：
 若更改了IP地址，务必在控制器上做好标注。如果忘记或丢失修改后的IP地址，请参考下面的方法重置IP。
 ***
-<font color=Blue size=4>如何重置IP？</font>
-重置IP步骤：
+<font color=Blue size=4>如何重置IP？</font>  </br>
+重置IP步骤：</br>
 * (1) 按下急停开关，关闭控制器电源。
 * (2) 用导线将RI0与GND连接。
 <img src="assets/settings_resetip_cn.png" width="70%"/></br>
@@ -757,30 +757,30 @@ Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory
 
 **安装：** 点击选中提前下载好的升级包，即可更新固件和studio到最新。
 ### 6.5.3 日志
-<img src="assets/settings_log_cn.png" width="70%"/></br>
+<img src="assets/settings_log_cn.png" width="60%"/></br>
 &ensp;&ensp;显示伺服、控制器、末端工具、直线滑轨的报错日志。当手臂发生错误时，可点击下载按钮下载详细日志，并发送给技术支持进行分析。
 # 7. Blockly典型示例
 &ensp;&ensp;在UFactory Studio中Blockly内置了几个例子，可以参考例子进行编程。下面介绍其中几个较有代表性的例子。
 ## 7.1 xArm机械爪的使用
-&ensp;&ensp;该Blockly程序在示例程序[UF] - 1007_xArm_Gripper。
-<img src="assets/blockly_ex_1_cn.png" width="70%"/></br>
+&ensp;&ensp;该Blockly程序在示例程序[UF] - 1007_xArm_Gripper。</br>
+<img src="assets/blockly_ex_1_cn.png" width="60%"/></br>
 &ensp;&ensp;这段程序的作用：执行此程序，可控制机械爪在指定位置夹取目标物，然后将目标物放到特定的位置。
 &ensp;&ensp;设置TCP负载：该指令在上述程序中使用多次，其主要目的是**动态改变负载**，适应机械臂在夹取和释放物体的过程中TCP负载的变化。
 ## 7.2 xArm真空吸头的使用
-&ensp;&ensp;该Blockly程序在示例程序[UF] - 1008_xArm_Vacuum_Gripper。
-<img src="assets/blockly_ex_2_cn.png" width="70%"/></br>
+&ensp;&ensp;该Blockly程序在示例程序[UF] - 1008_xArm_Vacuum_Gripper。</br>
+<img src="assets/blockly_ex_2_cn.png" width="60%"/></br>
 这段程序的作用：执行此程序，可控制真空吸头在指定位置吸取目标物，然后将目标物放到特定的位置。
 * 定义的函数要放在主程序的前面，如上图所示。
 * 主要指令：
 **设置真空吸头（开/关）**：可设置真空吸头开启和关闭状态。
 * 是否拾取检测=是，同时检测了是否吸住物体，如果没有吸住物体，将会跳出整个程序；
 * 是否拾取检测=否，不检测是否吸住物体。
-**检测真空吸头已经（吸住/释放）**：检测真空吸头是否吸住（释放）物体，若检测到真空吸头已吸住（释放）物体，则跳出这条指令，执行下一个指令，如果超过了超时时间后，真空吸头还未吸住（释放）物体，则也会跳出该指令，执行下一个指令。
-**循环运动计数：** 通过添加计数器自增，机械臂每次执行到该指令时会使控制器的计数器自增1。可用于计算机械臂实际循环执行的次数。
-**重置计数器：** 该指令将控制器内的计数器重置为0。
+**检测真空吸头已经（吸住/释放）**：检测真空吸头是否吸住（释放）物体，若检测到真空吸头已吸住（释放）物体，则跳出这条指令，执行下一个指令，如果超过了超时时间后，真空吸头还未吸住（释放）物体，则也会跳出该指令，执行下一个指令。</br>
+**循环运动计数：** 通过添加计数器自增，机械臂每次执行到该指令时会使控制器的计数器自增1。可用于计算机械臂实际循环执行的次数。</br>
+**重置计数器：** 该指令将控制器内的计数器重置为0。</br>
 ## 7.3 控制器数字IO的使用
-&ensp;&ensp;该Blockly程序在示例程序[UF] - 1010_Ditital_IO。
-<img src="assets/blockly_ex_3_cn.png" width="70%"/></br>
+&ensp;&ensp;该Blockly程序在示例程序[UF] - 1010_Ditital_IO。</br>
+<img src="assets/blockly_ex_3_cn.png" width="60%"/></br>
 &ensp;&ensp;这段程序的作用：可以通过触发数字IO，来执行相应的运动。CI0和CI1默认为低电平，当程序检测到CI0或CI1**跳变**为高电平时，改变变量值，从而触发一直循环中的如果事件，触发后重置变量值，达到触发一次CI则运行一次相应动作的效果。
 # 8. 运动学特性
 ## 8.1 机械臂的运动方式
@@ -792,8 +792,8 @@ Modbus TCP寄存器定义请参考：[Modbus TCP寄存器](https://docs.ufactory
 * 移动：机械臂会运动到当前位置点。
 * 修改：打开实时控制界面，调节当前点的坐标。
 
-上例中机械臂的运动轨迹如下：
-<img src="assets/blockly_joing_2_cn.png" width="70%"/></br>
+上例中机械臂的运动轨迹如下：</br>
+<img src="assets/blockly_joing_2_cn.png" width="15%" div align=center/></br>
 Python示例：
 ~~~python
 arm.set_servo_angle(angle=[0.0, 7.0, -71.2, 0.0, 0.0, 0.0], speed=8, mvacc=1145, wait=True)
@@ -811,24 +811,24 @@ arm.set_servo_angle(angle=[0.0, 7.0, -91.2, 0.0, 0.0, 0.0], speed=8, mvacc=1145,
 * `wait`：True：等待当前指令发完再发下一条指令；&ensp;&ensp; False：不等待，直接发下一条指令。
 * `mvtime`：0，运动时间，暂无意义。
 ***
-<font color=Blue size=4>如何规划连续的关节运动？</font>
-&ensp;&ensp; 两条关节运动指令之间插入圆弧过渡，是规划机械臂进行连续的关节运动的一种方式。
+<font color=Blue size=4>如何规划连续的关节运动？</font></br>
+&ensp;&ensp; 两条关节运动指令之间插入圆弧过渡，是规划机械臂进行连续的关节运动的一种方式。</br>
 <img src="assets/blockly_joint_3_cn.png" width="70%"/></br>
-&ensp;&ensp; 上例中机械臂的运动轨迹如下：
-<img src="assets/blockly_joint_4_cn.png" width="70%"/></br>
+&ensp;&ensp; 上例中机械臂的运动轨迹如下：</br>
+<img src="assets/blockly_joint_4_cn.png" width="15%" div align=center/></br>
 
 **关键参数说明**
  **Radius=60**
 `move joint`指令中的`Radius=60`，指设置的过渡圆弧的半径R= 60mm，用于实现关节运动转弯的平滑过渡。
 `Radius`的参数可设置为 `Radius>0, Radius=0, Radius=-1`, 不同参数对应不同的轨迹。
 * **`Radius>0：`** 例如设置Radius=60，转弯的轨迹如下图蓝色圆弧，可以实现平滑转弯效果。</br>
-<img src="assets/blockly_joint_5_cn.png" width="70%"/></br>
+<img src="assets/blockly_joint_5_cn.png" width="15%" div align=center/></br>
 * **`Radius=0：`** 转弯处不设置圆弧过渡，尖角转弯，如下图所示。</br>
-<img src="assets/blockly_joint_6_cn.png" width="70%"/></br>
+<img src="assets/blockly_joint_6_cn.png" width="15%" div align=center/></br>
 * **`Radius<0：`** 转弯处不设置圆弧过渡，尖角转弯，如下图所示。</br>
-<img src="assets/blockly_joint_7_cn.png" width="70%"/></br>
+<img src="assets/blockly_joint_7_cn.png" width="15%" div align=center/></br>
 
-**总结：**
+**总结：**  </br>
 &ensp;&ensp;  `move joint`指令中的wait表示是否需要等待本条指令执行完再发送下一条指令。
 &ensp;&ensp; 如果需要规划连续运动，请确保**`wait=false, Radius≥0`**。  
 * 关节速度在交融区域是平滑过渡的，交融部分执行的时间是不交融两段轨迹时间的一半， 所以如果关节运动交融半径比较小，速度提升感不会十分明显。
@@ -863,7 +863,7 @@ arm.set_position(x=205.0, y=140.0, z=110.4, roll=180.0, pitch=0.5, yaw=0.0, spee
 **圆心角的设置：**
 * **若0< 圆心角<360°或圆心角>360°：** 则机械臂的运动路径为相应度数的圆弧；
 &ensp;&ensp; 若圆心角=60°，机械臂的运动轨迹为：
-<img src="assets/blockly_circle_cn.png" width="70%"/></br>
+<img src="assets/blockly_circle_cn.png" width="20%"/></br>
 * 圆心角（°）=360°，则机械臂可完整走完一整个圆弧；
 * 若想连续画多个圆弧（例如，连续画10段圆弧），则将圆心角设置为所画圆弧度数的十倍。
 
@@ -874,12 +874,12 @@ arm.set_position(x=205.0, y=140.0, z=110.4, roll=180.0, pitch=0.5, yaw=0.0, spee
 
 **示例讲解：**
 &ensp;&ensp; 在此示例中，圆心角设置为3600°，代表每次可连续画十个圆，且机械臂每画完一个圆，还是停留在起点的。
-&ensp;&ensp; 上例中起点，位置1和位置2分别为：
+&ensp;&ensp; 上例中起点，位置1和位置2分别为：</br>
 A（300,0,400,180,0,0）B（350,50,400,180,0,0）C（350,-50,400,180,0,0）
-* 机械臂以顺时针方向画圆，机械臂运动轨迹的方向如下图：
-<img src="assets/blockly_circle_3_cn.png" width="70%"/></br>
-* 如果将B点和C的位置交换，B点为（350,-50,400,180,0,0），C点为（350,50,400,180,0,0），则机械臂的将以逆时针方向画圆，机械臂运动轨迹如下：
-<img src="assets/blockly_circle_4_cn.png" width="70%"/></br>
+* 机械臂以顺时针方向画圆，机械臂运动轨迹的方向如下图：</br>
+<img src="assets/blockly_circle_3_cn.png" width="15%"/></br>
+* 如果将B点和C的位置交换，B点为（350,-50,400,180,0,0），C点为（350,50,400,180,0,0），则机械臂的将以逆时针方向画圆，机械臂运动轨迹如下：</br>
+<img src="assets/blockly_circle_4_cn.png" width="15%"/></br>
 
 Python示例：
 ~~~python
@@ -890,32 +890,32 @@ arm.set_position(*[300.0, 0.0, 400.0, 0.0, -90.0, 180.0], speed=300, mvacc=2000,
 move_circle([350.0, 50.0, 400.0, 180.0, -90.0, 0.0], [350.0, -50.0, 400.0, 180.0, -90.0, 0.0], 1000.0, speed=300, mvacc=2000, wait=True)
 ~~~
 ## 8.2 xArm5运动特性
-**笛卡尔空间**
-&ensp;&ensp;xArm5的运动比较特殊，由于结构限制，笛卡尔空间的直线、圆弧运动实际灵活自由度为4, 即[x,y,z,yaw]，类似四自由度的SCARA机械臂。在开始笛卡尔控制之前，需要保证xArm5处于末端法兰面与底座完全水平的姿态，此时roll和pitch应为 [±180度，0度]，否则轨迹很容易无解。
-固件大于2.5.0时，提供**使用近似解**选项，可以解除此限制。  
+**笛卡尔空间**  </br>
+&ensp;&ensp;xArm5的运动比较特殊，由于结构限制，笛卡尔空间的直线、圆弧运动实际灵活自由度为4, 即[x,y,z,yaw]，类似四自由度的SCARA机械臂。在开始笛卡尔控制之前，需要保证xArm5处于末端法兰面与底座完全水平的姿态，此时roll和pitch应为 [±180度，0度]，否则轨迹很容易无解。</br>
+固件大于2.5.0时，提供**使用近似解**选项，可以解除此限制。 </br> 
 
-**关节空间**
-&ensp;&ensp;在关节空间时，机械臂有5个自由度可以控制，在需要末端使用其他姿态的情况下，可以切换至关节指令。而后再次使用关节指令回到法兰与底座水平的姿态即可以切换回笛卡尔控制。将J4的角度设为-(J2角度+J3角度)，从而调平末端。
+**关节空间**  </br>
+&ensp;&ensp;在关节空间时，机械臂有5个自由度可以控制，在需要末端使用其他姿态的情况下，可以切换至关节指令。而后再次使用关节指令回到法兰与底座水平的姿态即可以切换回笛卡尔控制。将J4的角度设为-(J2角度+J3角度)，从而调平末端。</br>
 ## 8.3 奇异点
 ***
-<font color=Blue size=4>什么是奇异点？</font>
-&ensp;&ensp;当机械臂的的任意两个关节的轴心处于同一直线时会出现奇异点。处于奇异点时,机器人自由度将发生退化，将会造成某些关节角速度趋于无穷大，导致失控。常见情况是，当腕关节（倒数第2个关节）处于或接近第一关节轴线时，也会出现奇异点（见图8.5），因而尽量避免直接经过靠近基座中心区域的笛卡尔轨迹，容易造成1关节速度过大。
-![[xarm6_singularity.png]](assets/xarm6_singularity.png)
+<font color=Blue size=4>什么是奇异点？</font> </br>
+&ensp;&ensp;当机械臂的的任意两个关节的轴心处于同一直线时会出现奇异点。处于奇异点时,机器人自由度将发生退化，将会造成某些关节角速度趋于无穷大，导致失控。常见情况是，当腕关节（倒数第2个关节）处于或接近第一关节轴线时，也会出现奇异点，因而尽量避免直接经过靠近基座中心区域的笛卡尔轨迹，容易造成1关节速度过大。</br>
+<img src="assets/xarm6_singularity.png" width="20%"/></br>
 ***
-**特性：**
-&ensp;&ensp;奇异点的特性为无法正确的进行规划运动。基于坐标的规划运动无法明确的反向转化为各轴的关节运动。机器人在奇异点附近进行规划运动（直线、圆弧等，不包括关节运动）时会报警停止，以避免通过奇异点时造成关节瞬间速度过快，所以示教时应尽量避开奇异点或以关节运动通过奇异点。
+**特性：** </br>
+&ensp;&ensp;奇异点的特性为无法正确的进行规划运动。基于坐标的规划运动无法明确的反向转化为各轴的关节运动。机器人在奇异点附近进行规划运动（直线、圆弧等，不包括关节运动）时会报警停止，以避免通过奇异点时造成关节瞬间速度过快，所以示教时应尽量避开奇异点或以关节运动通过奇异点。</br>
 
-**如何处理奇异点？**
-情况一：在机器人示教时遇到奇异点
-* 将机器人的示教坐标系切换到关节。
+**如何处理奇异点？** </br>
+情况一：在机器人示教时遇到奇异点 </br>
+* 将机器人的示教坐标系切换到关节。</br>
 
-情况二：在程序运行时遇到奇异点
-* 打开[使用近似解](#书签13：使用近似解)选项
-* 当运行程序时遇到奇异点，可以修改机器人的位置姿态，以避开路径当中存在的奇异点，重新进行到达目标点的路径规划。
-* 
+情况二：在程序运行时遇到奇异点</br>
+* 打开[使用近似解]选项</br>
+* 当运行程序时遇到奇异点，可以修改机器人的位置姿态，以避开路径当中存在的奇异点，重新进行到达目标点的路径规划。</br>
+
 注意：
-&ensp;&ensp;选择机械臂安装位置时，务必考虑机械臂正上方和正下方的圆柱体空间（如下图）。尽可能避免将机械臂腕关节（J5）移向圆柱体空间，因为这样会造成机械臂慢速运动时关节运动超速，从而降低机械臂的工作效率，且风险评估难以进行。
-![[singularity_1.png]](assets/singularity_1.png)
+&ensp;&ensp;选择机械臂安装位置时，务必考虑机械臂正上方和正下方的圆柱体空间（如下图）。尽可能避免将机械臂腕关节（J5）移向圆柱体空间，因为这样会造成机械臂慢速运动时关节运动超速，从而降低机械臂的工作效率，且风险评估难以进行。</br>
+<img src="assets/singularity_1.png" width="50%"/></br>
 
 # 9. 机械臂状态与模式说明
 &ensp;&ensp;控制器提供7种运动模式和6种状态，对应PythonSDK中_set_mode_, _set_state_函数。
@@ -923,83 +923,68 @@ move_circle([350.0, 50.0, 400.0, 180.0, -90.0, 0.0], [350.0, -50.0, 400.0, 180.0
 #### 模式0：位置控制模式
 控制器启动后默认进入的模式。
 ##### 1. 关节运动
-&ensp;&ensp;实现关节空间的点对点运动（单位：度/弧度），每个指令之间速度不连续。
-&ensp;&ensp;示例代码：[set_servo_angle](https://github.com/xArm-Developer/xArm-Python-SDK/tree/master/example/wrapper/xarm6)  
-
-注意：此例子适用于xArm6，使用xArm5与xArm7请减少或增加对应关节角。
+&ensp;&ensp;实现关节空间的点对点运动（单位：度/弧度），每个指令之间速度不连续。</br>
+&ensp;&ensp;示例代码：[set_servo_angle](https://github.com/xArm-Developer/xArm-Python-SDK/tree/master/example/wrapper/xarm6)   </br>
+&ensp;&ensp;注意：此例子适用于xArm6，使用xArm5与xArm7请减少或增加对应关节角。&ensp;&ensp;
 ##### 2. 直线运动
 &ensp;&ensp;实现笛卡尔坐标之间的直线运动（单位：毫米），每个指令之间速度不连续。  
-
-&ensp;&ensp;可以用Roll/Pitch/Yaw表示机械臂姿态，也可以用轴角Rx/Ry/Rz表示机械臂姿态。
+&ensp;&ensp;可以用Roll/Pitch/Yaw表示机械臂姿态，也可以用轴角Rx/Ry/Rz表示机械臂姿态。 </br>
 &ensp;&ensp;示例代码：[set_position](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/1001-move_line.py), [set_position_aa](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/1008-move_line_aa.py)
 ##### 3. 直线圆弧运动
-&ensp;&ensp;实现笛卡尔坐标之间的直线运动（单位：毫米），在两条直线直接插入圆弧过渡，每个指令之间速度连续。  
-
+&ensp;&ensp;实现笛卡尔坐标之间的直线运动（单位：毫米），在两条直线直接插入圆弧过渡，每个指令之间速度连续。  </br>
 &ensp;&ensp;示例代码：[move_arc_lines](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/1005-move_arc_line.py)
 ##### 4. 圆及圆弧运动
-&ensp;&ensp;实现圆弧运动，根据三点坐标计算出空间圆的轨迹，三点坐标分别为（起点、参数1、参数2）。  
-
+&ensp;&ensp;实现圆弧运动，根据三点坐标计算出空间圆的轨迹，三点坐标分别为（起点、参数1、参数2）。   </br>
 &ensp;&ensp;示例代码：[move_circle](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/3001-move_circle.py)
 #### 模式1：伺服模式（servoj）
 此模式对于上位机实时性要求很高，建议使用打了[实时补丁](https://docs.ros.org/en/foxy/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.html)的Linux系统。
 ##### 1. 关节伺服模式
 &ensp;&ensp;机械臂可以接受最高以250HZ频率发送的关节位置指令。每收到一条指令机械臂会立刻响应，并以最大速度（180°/s）和加速度执行移动至给定的关节位置，此命令不设置缓冲区，仅执行最新收到的目标点。若发送指令的频率超过250HZ，则多余的指令将会丢失。  
-
-&ensp;&ensp;目前提供的SDK接口预留了速度、加速度和时间，但目前不起作用。如果客户有能力完成速度、加速度平滑的运动轨迹轨迹并映射到关节空间，servoj模式下可以代替控制器的规划，而令机械臂执行用户自己或第三方（比如ROS Moveit！）的规划算法，**如果用户无法自己实现轨迹规划及运动学逆解，请不要使用此模式。**  
-
+&ensp;&ensp;目前提供的SDK接口预留了速度、加速度和时间，但目前不起作用。如果客户有能力完成速度、加速度平滑的运动轨迹轨迹并映射到关节空间，servoj模式下可以代替控制器的规划，而令机械臂执行用户自己或第三方（比如ROS Moveit！）的规划算法，**如果用户无法自己实现轨迹规划及运动学逆解，请不要使用此模式。**    </br>
 &ensp;&ensp;示例代码：[set_servo_angle_j](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/7001-servo_j.py)
 ##### 2. 笛卡尔伺服模式
 &ensp;&ensp;机械臂可以接受最高以250HZ频率发送的笛卡尔位置指令。每收到一条指令机械臂会立刻响应，并以最大速度和加速度执行移动至给定的笛卡尔位置，此命令不设置缓冲区，仅执行最新收到的目标点。若发送指令的频率超过250HZ，则多余的指令将会丢失。  
-
 &ensp;&ensp;建议使用方法：以固定的频率（100HZ或200HZ）发布经过插值的平滑轨迹点（两点之间的单步距离不超过10mm），**切勿一次性给出过远的目标位置。**
-&ensp;&ensp;用户发布指令频率控制在30HZ-250HZ的范围内，若低于30HZ，机械臂运动可能会不连续。使用此模式需要规划每一个轴的精细位置和预测机械臂的运动行为，开发难度很大。  
-
+&ensp;&ensp;用户发布指令频率控制在30HZ-250HZ的范围内，若低于30HZ，机械臂运动可能会不连续。使用此模式需要规划每一个轴的精细位置和预测机械臂的运动行为，开发难度很大。</br>  
 &ensp;&ensp;示例代码：[set_servo_cartesian](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/7002-servo_cartesian.py) , [set_servo_cartesian_aa](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/7003-servo_cartesian_aa.py)
-
 #### 模式2：关节示教模式（手动模式）
-&ensp;&ensp;此模式下，机械臂进入零重力模式，用户可以自由拖动机械臂各连杆完成示教功能。如果拖动示教完成，请切换回模式0。  
-
-&ensp;&ensp;注意：开启示教模式之前，**务必确认机械臂安装方向和TCP负载设置正确**，否则手臂可能会由于重力补偿不准确而无法自我保持静止！  
-
+&ensp;&ensp;此模式下，机械臂进入零重力模式，用户可以自由拖动机械臂各连杆完成示教功能。如果拖动示教完成，请切换回模式0。  </br>
+&ensp;&ensp;注意：开启示教模式之前，**务必确认机械臂安装方向和TCP负载设置正确**，否则手臂可能会由于重力补偿不准确而无法自我保持静止！   </br>
 &ensp;&ensp;示例代码：
 ```bash
    arm.set_mode(2)
    arm.set_state(0)
 ```
 #### 模式4：关节速度控制模式
-&ensp;&ensp;指定所有关节目标速度（单位：rad/s），最大关节加速度可通过 _set_joint_maxacc_ 设置。
-示例代码：[vc_set_joint_velocity](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/2000-joint_velocity_control.py)
-
+&ensp;&ensp;指定所有关节目标速度（单位：rad/s），最大关节加速度可通过 _set_joint_maxacc_ 设置。</br>
+&ensp;&ensp;示例代码：[vc_set_joint_velocity](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/2000-joint_velocity_control.py)
 #### 模式5：笛卡尔速度控制模式
-&ensp;&ensp;指定TCP笛卡尔线速度（mm/s）和姿态角速度（rad/s），最大加速度可通过 _set_tcp_maxacc_ 设置。
-
+&ensp;&ensp;指定TCP笛卡尔线速度（mm/s）和姿态角速度（rad/s），最大加速度可通过 _set_tcp_maxacc_ 设置。</br>
+&ensp;&ensp;示例代码：[vc_set_cartesian_velocity](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/1009-cartesian_velocity_control.py)
 #### 模式6：关节在线规划模式
-&ensp;&ensp;关节在线轨迹规划（控制器固件版本≥**v1.10.0**），实现关节指令的动态响应。当收到新的运动指令时，立刻当断当前正在进行的关节指令，从当前位置开始规划执行新的关节指令。
-示例代码：[set_servo_angle](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/2006-joint_online_trajectory_planning.py)
-
+&ensp;&ensp;关节在线轨迹规划（控制器固件版本≥**v1.10.0**），实现关节指令的动态响应。当收到新的运动指令时，立刻当断当前正在进行的关节指令，从当前位置开始规划执行新的关节指令。</br>
+&ensp;&ensp;示例代码：[set_servo_angle](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/2006-joint_online_trajectory_planning.py)
 #### 模式7：笛卡尔在线规划模式
-&ensp;&ensp;笛卡尔在线轨迹规划（控制器固件版本≥**v1.10.0**），实现笛卡尔指令的动态响应。当收到新的运动指令时，立刻当断当前正在进行的笛卡尔指令，从当前位置开始规划执行新的笛卡尔指令。  
-
-&ensp;&ensp;注意：使用此模式时，_set_position_aa_ 中的`is_tool_coord`必须为False，即**只能以基坐标系为参考**，不能以工具坐标系做相对运动。
-示例代码：[set_position](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/1010-cartesian_online_trajectory_planning.py)
-
+&ensp;&ensp;笛卡尔在线轨迹规划（控制器固件版本≥**v1.10.0**），实现笛卡尔指令的动态响应。当收到新的运动指令时，立刻当断当前正在进行的笛卡尔指令，从当前位置开始规划执行新的笛卡尔指令。   </br>
+&ensp;&ensp;注意：使用此模式时，_set_position_aa_ 中的`is_tool_coord`必须为False，即**只能以基坐标系为参考**，不能以工具坐标系做相对运动。 </br>
+&ensp;&ensp;示例代码：[set_position](https://github.com/xArm-Developer/xArm-Python-SDK/blob/master/example/wrapper/common/1010-cartesian_online_trajectory_planning.py)
 ## 9.2 机械臂状态
 #### 状态0：开启运动
-&ensp;&ensp;**可设置**，手臂准备好运动或运动就绪状态。此状态下，机械臂能正常响应和执行运动指令。设置完成后，状态反馈自动调整为状态2（READY）。如果机械臂从错误、断电或停止状态中恢复，请在发送运动指令前将状态设置为0，否则发送的指令将被丢弃。
+&ensp;&ensp;可设置，手臂准备好运动或运动就绪状态。此状态下，机械臂能正常响应和执行运动指令。设置完成后，状态反馈自动调整为状态2（READY）。如果机械臂从错误、断电或停止状态中恢复，请在发送运动指令前将状态设置为0，否则发送的指令将被丢弃。
 #### 状态1：手臂正在运动中
-&ensp;&ensp;**反馈**。
+&ensp;&ensp;反馈。
 #### 状态2：READY
-&ensp;&ensp;**反馈**，手臂已准备好，可以接收执行指令。
+&ensp;&ensp;反馈，手臂已准备好，可以接收执行指令。
 #### 状态3：暂停
-&ensp;&ensp;**可设置可反馈**。
+&ensp;&ensp;可设置可反馈。
 #### 状态4：停止
-&ensp;&ensp;**可设置可反馈**。
+&ensp;&ensp;可设置可反馈。
 &ensp;&ensp;设置：立即停止运动，并清除所有缓存指令。之前发送的指令作废切无法接受新的指令，直至状态被设置回0。
 &ensp;&ensp;反馈：无法接收新的指令，出现错误码自动跳转为此状态。
 #### 状态5：系统重置
-&ensp;&ensp;**反馈**。指系统设置（比如模式、负载、偏移、灵敏度等）发生了变化，自动跳转为MODE_CHANGED状态，无法接收执行新的指令，直到收到`set_state(0)`。
+&ensp;&ensp;反馈。指系统设置（比如模式、负载、偏移、灵敏度等）发生了变化，自动跳转为MODE_CHANGED状态，无法接收执行新的指令，直到收到`set_state(0)`。
 #### 状态6：减速停止
-&ensp;&ensp;**可设置可反馈**。
+&ensp;&ensp;可设置可反馈。
 
 # 10. 机械臂运动参数表
 
@@ -1117,6 +1102,7 @@ move_circle([350.0, 50.0, 400.0, 180.0, -90.0, 0.0], [350.0, -50.0, 400.0, 180.0
 | C53      | 六维力矩传感器过载</br><br>请减小负载或施加的力                                                                      |
 | C110     | 机械臂底座板通信异常                                                                                        |
 | C111     | 控制器外接485设备通信异常                                                                                    |
+
 &ensp;&ensp;上表中未出现的报警代码：如频繁出现，请联系技术支持。
 
 ## 12.2 关节伺服错误代码
@@ -1152,6 +1138,7 @@ move_circle([350.0, 50.0, 400.0, 180.0, -90.0, 0.0], [350.0, -50.0, 400.0, 180.0
 | S49                               | EEPROM读写错误  <br>请通过控制器上的紧急停止按钮重启机械臂。                                  |
 | S52                               | 电机角度初始化失败  <br>请通过控制器上的紧急停止按钮重启机械臂。                                   |
 | S58                               | 转矩指令超时</br><br>请通过控制器上的紧急停止按钮重启机械臂。                                   |
+
 &ensp;&ensp;上表中未出现的报警代码：如频繁出现，请联系技术支持。
 ## 12.3 PythonSDK报警信息
 &ensp;&ensp; 在用 Python 库设计机器人运动规划时，如果机器人出现故障，需要手动清除错误。清除错误后，仍需重新给机器人使能，设置运动模式，方可使机器人正常运动。此时根据上报的错误信息，应重新调整机器人的路径规划。
@@ -1188,27 +1175,28 @@ move_circle([350.0, 50.0, 400.0, 180.0, -90.0, 0.0], [350.0, -50.0, 400.0, 180.0
 | A101                                   | 检测末端执行器状态失败次数过多。                             |
 | A102                                   | 末端执行器有错误。                                    |
 | A103                                   | 末端执行器未使能。                                    |
+
 &ensp;&ensp;上表中未出现的报警代码：如频繁出现，请联系技术支持。
 # 13. 软件/固件升级方式
 ## 13.1 在线升级
-&ensp;&ensp;当PC端有网络连接时，可进行在线升级。
-* **方法一：** 使用UFactory studio进行在线升级。
-&ensp;&ensp; 进入我的设备-检查更新，点击“检查更新”，如有新的版本，点击“下载”，下载完成后点击“安装”加载下载好的安装包，等待系统重启。重启耗时约2-3分钟。
-![[settings_checkupdate_2_cn.png]](assets/settings_checkupdate_2_cn.png)
+&ensp;&ensp;当PC端有网络连接时，可进行在线升级。</br>
+* **方法一：** 使用UFactory studio进行在线升级。 </br>
+&ensp;&ensp; 进入我的设备-检查更新，点击“检查更新”，如有新的版本，点击“下载”，下载完成后点击“安装”加载下载好的安装包，等待系统重启。重启耗时约2-3分钟。</br>
+<img src="assets/settings_checkupdate_2_cn" width="50%"/></br>
 ## 13.2 离线升级
-&ensp;&ensp;当PC端没有网络连接时，可使用离线升级。
-* **方法一：** 使用UFactory Studio离线升级。
-[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-x86.zip) - xArm&UF850下载
-[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-Lite6.zip) - Lite6下载
-&ensp;&ensp; 进入我的设备-检查更新，点击“安装”加载提前下载好的离线包，等待安装完成系统重启即可。
-![[settings_checkupdate_3_cn.png]]
-* **方法二：** 使用xarm-tool-gui进行离线升级。
-[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-x86.zip) - xArm&UF850下载
-[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-Lite6.zip) - Lite6下载
-&ensp;&ensp;  (1) 点击固件-离线安装，选择提前下载好的离线固件包，点击安装，界面弹出提示“安装固件成功”。
-&ensp;&ensp;  (2)点击Studio-离线安装，选择提前下载好的离线Studio包，点击安装，界面弹出提示“安装Studio成功”。
-&ensp;&ensp;  (3) 点击重启控制盒，等待2-3分钟控制器重启完成，重新连接即可。
-![[settings-offlineupdate_cn.png]](assets/settings-offlineupdate_cn.png)
+&ensp;&ensp;当PC端没有网络连接时，可使用离线升级。 </br>
+* **方法一：** 使用UFactory Studio离线升级。 </br>
+[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-x86.zip) - xArm&UF850下载 </br>
+[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-Lite6.zip) - Lite6下载 </br>
+&ensp;&ensp; 进入我的设备-检查更新，点击“安装”加载提前下载好的离线包，等待安装完成系统重启即可。 </br>
+<img src="assets/settings_checkupdate_3_cn.png" width="50%"/></br>
+* **方法二：** 使用xarm-tool-gui进行离线升级。 </br>
+[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-x86.zip) - xArm&UF850下载 </br>
+[GUI工具和软件/固件离线包](http://update.ufactory.cc/xArmTool-Lite6.zip) - Lite6下载 </br>
+&ensp;&ensp;  (1) 点击固件-离线安装，选择提前下载好的离线固件包，点击安装，界面弹出提示“安装固件成功”。 </br>
+&ensp;&ensp;  (2)点击Studio-离线安装，选择提前下载好的离线Studio包，点击安装，界面弹出提示“安装Studio成功”。 </br>
+&ensp;&ensp;  (3) 点击重启控制盒，等待2-3分钟控制器重启完成，重新连接即可。 </br>
+<img src="assets/settings-offlineupdate_cn.png" width="50%"/></br>
 
 **注意：**
 当在线升级不成功时，可以尝试离线升级。离线升级仍然不成功时，请联系技术支持（[support@ufactory.cc](mailto:support@ufactory.cc)）。 软件/固件**降级**请参考xarm-tool-tui的升级方法，选择对应低版本的离线包即可。
